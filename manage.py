@@ -12,6 +12,11 @@ if not settings.configured:
         SECRET_KEY='belles-final-luxury-2026',
         ROOT_URLCONF='__main__',
         ALLOWED_HOSTS = ['*'],
+            CSRF_TRUSTED_ORIGINS = [
+        'https://belles-couture.onrender.com',
+        'https://bellescouture.shop',
+        'https://www.bellescouture.shop',
+    ],
         INSTALLED_APPS=[
             'django.contrib.contenttypes',
             'django.contrib.auth',
