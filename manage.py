@@ -1201,9 +1201,22 @@ if __name__ == '__main__':
         except Exception:
             pass
     seed()
-    if not User.objects.filter(is_staff=True).exists():
+# FORCE CREATE / UPDATE ARTIST ADMIN
+try:
+    u = User.objects.filter(email='artist@bellescouture.shop').first()
+    if u:
+        u.is_staff=True
+        u.is_superuser=True
+        u.is_active=True
+        u.set_password('admin123')
+        u.save()
+        print("UPDATED EXISTING ADMIN")
+    else:
         artist_user = User.objects.create_superuser('artist@bellescouture.shop', 'artist@bellescouture.shop', 'admin123')
         artist_user.first_name = "Lead Makeup Artist"
         artist_user.save()
+        print("CREATED NEW ADMIN")
+except Exception as e:
+    print(f"Admin error: {e}")
     from django.core.management import execute_from_command_line
     execute_from_command_line(sys.argv)
