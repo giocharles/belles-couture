@@ -20,6 +20,7 @@ if not settings.configured:
         SECRET_KEY='belles-final-luxury-2028',
         ROOT_URLCONF='__main__',
         ALLOWED_HOSTS = ['*'],
+        CSRF_TRUSTED_ORIGINS = ['https://bellescouture.shop', 'https://www.bellescouture.shop', 'https://belles-couture.onrender.com'],
         TIME_ZONE = 'Asia/Manila',
         USE_TZ = True,
         INSTALLED_APPS=[
