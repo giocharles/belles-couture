@@ -1109,7 +1109,7 @@ def login_view(request):
         form = LoginForm()
     
     visible_fields = [form['email'], form['password']]
-    html = render_template(AUTH_HTML, {'form': form, 'f_visible': visible_fields, 'title': 'Welcome!', 'button': 'Login', 'footer': 'No account? <a href="/register/">Register</a> | <a href="/forgot-password/">Forgot Password?</a>', 'success_msg': success_msg}, request)
+    html = render_template(AUTH_HTML, {'form': form, 'f_visible': visible_fields, 'title': 'Hello!', 'button': 'Login', 'footer': 'No account? <a href="/register/">Register</a> | <a href="/forgot-password/">Forgot Password?</a>', 'success_msg': success_msg}, request)
     return HttpResponse(html)
 
 def forgot_password_view(request):
